@@ -23,27 +23,43 @@
 //   }
 // }
 export default (arr) => {
-  arr = arr.filter(item => item > 0)
-  // 实现选择排序，先拿到最小值，如果第一个元素不是1直接返回1，如果是1，就要比相邻元素差值
-  for (let i = 0, len = arr.length, min; i < len; i++) {
-    min = arr[i]
-    for (let j = i + 1; j < len; j++) {
-      if (arr[j] < min) {
-        let c = min
-        min = arr[j]
-        arr[j] = c
-      }
-    }
-    arr[i] = min
-    if (i > 0) {
-      if (arr[i] - arr[i - 1] > 1) {
-        return arr[i - 1] + 1
-      }
-    } else {
-      if (min !== 1) {
-        return 1
-      }
+  //缺失的第一个正数
+  function x(arr){
+  let r = arr.filter((item)=>{
+    return item>0
+  })
+  r.sort((a,b)=>{
+    return a-b
+  })
+  for(let i=1;i<=r.length;++i){
+    if(r[i-1]!==i){
+      return i
     }
   }
-  return arr.length ? arr.pop() + 1 : 1
+  return r.length+1
 }
+}
+  // arr = arr.filter(item => item > 0)
+  // // 实现选择排序，先拿到最小值，如果第一个元素不是1直接返回1，如果是1，就要比相邻元素差值
+  // for (let i = 0, len = arr.length, min; i < len; i++) {
+  //   min = arr[i]
+  //   for (let j = i + 1; j < len; j++) {
+  //     if (arr[j] < min) {
+  //       let c = min
+  //       min = arr[j]
+  //       arr[j] = c
+  //     }
+  //   }
+  //   arr[i] = min
+  //   if (i > 0) {
+  //     if (arr[i] - arr[i - 1] > 1) {
+  //       return arr[i - 1] + 1
+  //     }
+  //   } else {
+  //     if (min !== 1) {
+  //       return 1
+  //     }
+  //   }
+  // }
+  // return arr.length ? arr.pop() + 1 : 1
+// }
