@@ -1,5 +1,5 @@
 export default (n) => {
-
+//格雷编码
   function x(n) {
     if (n === 1) {
       return  [[0],[1]]
