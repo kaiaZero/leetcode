@@ -1,4 +1,4 @@
-/**
+// 84. Largest Rectangle in Histogram
  * @param {number[]} heights
  * @return {number}
  */
@@ -22,12 +22,6 @@ var largestRectangleArea = function(heights) {
                 let max = (i + 1) * stack2[i]
                 r = r > max ? r : max
 
-              }
-            }
-            for(let j=0;j<stack.length; j++) {
-              if (heights[i] < stack[j]){
-                stack[j] = heights[i]
-                console.log(heights[i])
               }
             }
             for(let j=0,len=stack2.length;j<=len;j++){
